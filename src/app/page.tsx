@@ -93,7 +93,7 @@ export default function Home() {
             <h1 className="text-4xl font-bold tracking-tighter md:text-6xl">Shibam Das</h1>
             <h2 className="text-2xl font-medium text-primary md:text-3xl">Software Developer & AI Enthusiast</h2>
             <p className="max-w-xl text-foreground/80">
-              A second-year Information Technology student with a passion for building innovative software solutions and exploring the frontiers of artificial intelligence.
+              An Information Technology student with a passion for building innovative software solutions and exploring the frontiers of artificial intelligence.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <Button asChild>
