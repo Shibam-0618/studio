@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import AboutGenerator from '@/components/about-generator';
 import ScrollToTop from '@/components/scroll-to-top';
+import Chatbot from '@/components/chatbot';
 
 const skills = {
   "Programming Languages": ["JavaScript", "Python", "Java", "C++", "SQL"],
@@ -223,6 +224,7 @@ export default function Home() {
         </div>
       </footer>
       <ScrollToTop />
+      <Chatbot />
     </div>
   )
 }
