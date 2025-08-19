@@ -33,7 +33,6 @@ const projects = [
     description: "Designed and implemented a fully automated ETL pipeline on AWS for processing large datasets. Leveraged AWS Glue for data extraction, transformation, and loading, S3 for data storage, and Athena for querying.",
     tools: ["AWS Glue", "S3", "Athena", "Python"],
     link: "#",
-    image: "https://placehold.co/600x400.png",
     dataAiHint: "cloud data"
   },
   {
@@ -41,7 +40,6 @@ const projects = [
     description: "Developed a machine learning model to analyze and predict stock market trends based on candlestick patterns. Utilized deep learning techniques to identify patterns and provide insights for trading decisions.",
     tools: ["Python", "TensorFlow", "Pandas", "Scikit-learn"],
     link: "#",
-    image: "https://placehold.co/600x400.png",
     dataAiHint: "stock market"
   },
   {
@@ -49,7 +47,6 @@ const projects = [
     description: "Built a machine learning system to detect fraudulent online transactions in real-time. The model was trained on a large dataset of transactions to identify anomalies and flag suspicious activities.",
     tools: ["Python", "Scikit-learn", "Flask", "Jupyter"],
     link: "#",
-    image: "https://placehold.co/600x400.png",
     dataAiHint: "security code"
   }
 ];
@@ -57,8 +54,8 @@ const projects = [
 const education = {
   institution: "University of Engineering & Management, Kolkata",
   degree: "Bachelor of Technology in Computer Science & Engineering",
-  period: "2020 - 2024",
-  details: "CGPA: 8.5/10"
+  period: "2022 - 2026 (Expected)",
+  details: "Currently in my second year."
 };
 
 const iconMap: { [key: string]: React.ReactNode } = {
@@ -96,7 +93,7 @@ export default function Home() {
             <h1 className="text-4xl font-bold tracking-tighter md:text-6xl">Shibam Das</h1>
             <h2 className="text-2xl font-medium text-primary md:text-3xl">Software Developer & AI Enthusiast</h2>
             <p className="max-w-xl text-muted-foreground">
-              A final-year Computer Science student with a passion for building innovative software solutions and exploring the frontiers of artificial intelligence.
+              A second-year Computer Science student with a passion for building innovative software solutions and exploring the frontiers of artificial intelligence.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <Button asChild>

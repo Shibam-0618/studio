@@ -18,7 +18,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Textarea } from './ui/textarea';
 import { Skeleton } from './ui/skeleton';
 
-const USER_DETAILS = `Shibam Das, a final year B.Tech student in Computer Science & Engineering from Kolkata. Skilled in Python, Java, C++, and JavaScript. Proficient in web development technologies like React and Node.js. Experienced with AWS services, particularly in building automated ETL pipelines with AWS Glue. Has developed machine learning models for candlestick analysis and fraud detection. A proactive learner and collaborative team player, passionate about leveraging technology to create impactful and innovative solutions. Seeks to apply his skills in a challenging and dynamic software development role.`;
+const USER_DETAILS = `Shibam Das, a second year B.Tech student in Computer Science & Engineering from Kolkata. Skilled in Python, Java, C++, and JavaScript. Proficient in web development technologies like React and Node.js. Experienced with AWS services, particularly in building automated ETL pipelines with AWS Glue. Has developed machine learning models for candlestick analysis and fraud detection. A proactive learner and collaborative team player, passionate about leveraging technology to create impactful and innovative solutions. Seeks to apply his skills in a challenging and dynamic software development role.`;
 
 export default function AboutGenerator() {
   const [style, setStyle] = useState('professional');
