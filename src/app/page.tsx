@@ -119,7 +119,7 @@ export default function Home() {
             </div>
           </div>
           <div className="flex justify-center">
-            <img src="https://placehold.co/400x400" alt="Shibam Das" className="h-48 w-48 rounded-full border-4 border-primary shadow-lg" data-ai-hint="profile" />
+            <img src="/profile.jpg" alt="Shibam Das" className="h-48 w-48 rounded-full border-4 border-primary shadow-lg" />
           </div>
         </section>
 
