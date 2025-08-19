@@ -8,7 +8,7 @@ import AboutGenerator from '@/components/about-generator';
 
 const skills = {
   "Programming Languages": ["Python", "Java", "C++", "JavaScript", "TypeScript", "SQL"],
-  "Libraries/Frameworks": ["React", "Next.js", "Node.js", "Express.js", "Flask", "Pandas", "NumPy", "Scikit-learn"],
+  "Libraries/Frameworks": ["React", "Node.js", "Express.js", "Pandas", "NumPy"],
   "Cloud Platforms": ["Amazon Web Services (AWS)", "Google Cloud Platform (GCP)", "Firebase"],
   "Databases": ["MySQL", "PostgreSQL", "MongoDB"],
   "Version Control": ["Git", "GitHub"]
@@ -38,14 +38,14 @@ const projects = [
   {
     title: "AI/ML Candlestick Analysis System",
     description: "Developed a machine learning model to analyze and predict stock market trends based on candlestick patterns. Utilized deep learning techniques to identify patterns and provide insights for trading decisions.",
-    tools: ["Python", "TensorFlow", "Pandas", "Scikit-learn"],
+    tools: ["Python", "TensorFlow", "Pandas"],
     link: "#",
     dataAiHint: "stock market"
   },
   {
     title: "Fraud Detection in Online Transactions",
     description: "Built a machine learning system to detect fraudulent online transactions in real-time. The model was trained on a large dataset of transactions to identify anomalies and flag suspicious activities.",
-    tools: ["Python", "Scikit-learn", "Flask", "Jupyter"],
+    tools: ["Python", "Flask", "Jupyter"],
     link: "#",
     dataAiHint: "security code"
   }
