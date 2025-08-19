@@ -62,24 +62,48 @@ Contact:
 - LinkedIn: https://www.linkedin.com/in/shibam-das-8262092a7
 `;
 
+const getCurrentTime = ai.defineTool(
+  {
+    name: 'getCurrentTime',
+    description: 'Gets the current time.',
+    outputSchema: z.string(),
+  },
+  async () => new Date().toLocaleTimeString()
+);
+
+const getCurrentDate = ai.defineTool(
+  {
+    name: 'getCurrentDate',
+    description: 'Gets the current date.',
+    outputSchema: z.string(),
+  },
+  async () => new Date().toLocaleDateString()
+);
+
 const chatbotPrompt = ai.definePrompt({
   name: 'chatbotPrompt',
   input: { schema: ChatbotInputSchema },
   output: { schema: ChatbotOutputSchema },
+  tools: [getCurrentTime, getCurrentDate],
   prompt: `You are a friendly and helpful AI assistant for Shibam Das's personal portfolio. 
   Your goal is to answer questions from visitors about Shibam.
-  Use the context provided below and the conversation history to answer the user's questions.
+  Use the context provided below, your available tools, and the conversation history to answer the user's questions.
   Keep your answers concise and conversational. If you don't know the answer, say that you don't have that information but can pass the question along to Shibam.
-  
-  Context about Shibam Das:
+
+  **Special Commands**:
+  - If the user asks for 'help', provide a list of things you can do.
+  - If the user says 'reset', confirm that the conversation history will be cleared.
+  - If the user says their name (e.g., "my name is..."), remember it and use it in your responses.
+
+  **Context about Shibam Das**:
   ${portfolioContext}
 
-  Conversation History:
+  **Conversation History**:
   {{#each history}}
     {{role}}: {{{content}}}
   {{/each}}
   
-  New user message:
+  **New user message**:
   user: {{{message}}}
   
   You must provide your response as a valid JSON object, adhering to the specified output schema.

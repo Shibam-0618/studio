@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { handleChatbot } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
-import { MessageSquare, Send, X, Loader2, Bot, User } from 'lucide-react';
+import { MessageSquare, Send, X, Loader2, Bot, User, RotateCcw } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type Message = {
@@ -29,9 +29,21 @@ export default function Chatbot() {
     }
   }, [messages]);
 
+  const resetChat = () => {
+    setMessages([]);
+  }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
+
+    if (input.trim().toLowerCase() === 'reset') {
+      resetChat();
+      setInput('');
+      const modelMessage: Message = { role: 'model', content: "Memory cleared. Let's start over!" };
+      setMessages((prev) => [...prev, modelMessage]);
+      return;
+    }
 
     const userMessage: Message = { role: 'user', content: input };
     setMessages((prev) => [...prev, userMessage]);
@@ -72,6 +84,9 @@ export default function Chatbot() {
               <CardTitle>AI Assistant</CardTitle>
               <CardDescription>Ask me about Shibam!</CardDescription>
             </div>
+            <Button variant="ghost" size="icon" onClick={resetChat} aria-label="Reset chat">
+              <RotateCcw className="h-5 w-5" />
+            </Button>
           </CardHeader>
           <CardContent className="flex-grow flex flex-col p-0">
             <ScrollArea className="h-80 flex-grow p-6">
@@ -123,7 +138,7 @@ export default function Chatbot() {
                 <Input
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Type a message..."
+                  placeholder="Type 'help' for commands..."
                   disabled={isPending}
                 />
                 <Button type="submit" size="icon" disabled={isPending || !input.trim()}>
