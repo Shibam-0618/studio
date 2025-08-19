@@ -17,12 +17,16 @@ const skills = {
 const experience = [
   {
     company: "Elewayte (A company of Realtalk Software Services Pvt. Ltd.)",
-    role: "Software Development Engineer Intern",
-    period: "Feb 2024 - Present",
+    role: "AWS Cloud Intern",
+    period: "Feb 2025 - Mar 2025 (2 Months)",
     responsibilities: [
-      "Contributed to the development of web applications using React and Node.js.",
-      "Collaborated with the team to design and implement new features.",
-      "Participated in code reviews and agile development processes."
+      "Designed ETL pipelines for structured & semi-structured datasets.",
+      "Worked on AWS Glue, a serverless ETL tool used in Data Analytics and ML pipelines.",
+      "Built and managed Data Catalogs, Databases, and Tables.",
+      "Used Crawlers & Classifiers for metadata management.",
+      "Developed ETL jobs using Apache Spark (Python).",
+      "Configured Triggers for workflow automation.",
+      "Tested ETL scripts in Development Endpoints."
     ]
   }
 ];
@@ -115,7 +119,7 @@ export default function Home() {
             </div>
           </div>
           <div className="flex justify-center">
-            <img src="https://placehold.co/400x400/000000/FFF?text=S" alt="Shibam Das" className="h-48 w-48 rounded-full border-4 border-primary shadow-lg" data-ai-hint="profile picture" />
+            <img src="https://placehold.co/400x400" alt="Shibam Das" className="h-48 w-48 rounded-full border-4 border-primary shadow-lg" data-ai-hint="profile" />
           </div>
         </section>
 
