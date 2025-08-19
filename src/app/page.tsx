@@ -107,14 +107,13 @@ export default function Home() {
             </div>
           </div>
           <div className="flex justify-center">
-            <Image
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&h=200&auto=format&fit=crop"
+            <img
+              src="https://placehold.co/200x200.png"
               alt="Shibam Das"
               width={200}
               height={200}
               className="rounded-full border-4 border-primary shadow-lg"
               data-ai-hint="profile picture"
-              priority
             />
           </div>
         </section>
