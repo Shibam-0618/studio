@@ -51,7 +51,7 @@ const projects = [
 ];
 
 const education = {
-  institution: "University of Engineering & Management, Kolkata",
+  institution: "MCKV institute of engineering",
   degree: "Bachelor of Technology in Information Technology",
   details: "Pursuing a Bachelor of Technology with a focus on Information Technology."
 };
