@@ -180,8 +180,7 @@ export default function Home() {
           <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Featured Projects</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {projects.map(project => (
-              <Card key={project.title} className="flex flex-col overflow-hidden">
-                <Image src={project.image} alt={project.title} width={600} height={400} className="w-full object-cover" data-ai-hint={project.dataAiHint} />
+              <Card key={project.title} className="flex flex-col">
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
                 </CardHeader>
