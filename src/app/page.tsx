@@ -90,27 +90,32 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        <section id="home" className="container grid items-center gap-8 py-12 md:py-24">
-          <div className="space-y-4 [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">
-            <h1 className="text-4xl font-bold tracking-tighter md:text-6xl">Shibam Das</h1>
-            <h2 className="text-2xl font-medium text-primary md:text-3xl">Software Developer & AI Enthusiast</h2>
-            <p className="max-w-xl text-foreground/80">
-              An Information Technology student with a passion for building innovative software solutions and exploring the frontiers of artificial intelligence.
-            </p>
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Button asChild>
-                <a href="mailto:shibamdas0618@gmail.com"><Mail className="mr-2 h-4 w-4" /> Email Me</a>
-              </Button>
-               <Button asChild>
-                <a href="tel:8240169466"><Phone className="mr-2 h-4 w-4" /> Call Me</a>
-              </Button>
-              <Button variant="secondary" asChild>
-                <a href="https://github.com/shibam-das" target="_blank" rel="noopener noreferrer"><Github className="mr-2 h-4 w-4" /> GitHub</a>
-              </Button>
-              <Button variant="secondary" asChild>
-                <a href="https://www.linkedin.com/in/shibamdas" target="_blank" rel="noopener noreferrer"><Linkedin className="mr-2 h-4 w-4" /> LinkedIn</a>
-              </Button>
+        <section id="home" className="container grid grid-cols-1 items-center gap-8 py-12 md:grid-cols-3 md:py-24">
+          <div className="md:col-span-2">
+            <div className="space-y-4 [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">
+              <h1 className="text-4xl font-bold tracking-tighter md:text-6xl">Shibam Das</h1>
+              <h2 className="text-2xl font-medium text-primary md:text-3xl">Software Developer & AI Enthusiast</h2>
+              <p className="max-w-xl text-foreground/80">
+                An Information Technology student with a passion for building innovative software solutions and exploring the frontiers of artificial intelligence.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-4">
+                <Button asChild>
+                  <a href="mailto:shibamdas0618@gmail.com"><Mail className="mr-2 h-4 w-4" /> Email Me</a>
+                </Button>
+                 <Button asChild>
+                  <a href="tel:8240169466"><Phone className="mr-2 h-4 w-4" /> Call Me</a>
+                </Button>
+                <Button variant="secondary" asChild>
+                  <a href="https://github.com/shibam-das" target="_blank" rel="noopener noreferrer"><Github className="mr-2 h-4 w-4" /> GitHub</a>
+                </Button>
+                <Button variant="secondary" asChild>
+                  <a href="https://www.linkedin.com/in/shibamdas" target="_blank" rel="noopener noreferrer"><Linkedin className="mr-2 h-4 w-4" /> LinkedIn</a>
+                </Button>
+              </div>
             </div>
+          </div>
+          <div className="flex justify-center">
+            <img src="https://placehold.co/400x400/000000/FFF?text=S" alt="Shibam Das" className="h-48 w-48 rounded-full border-4 border-primary shadow-lg" data-ai-hint="profile picture" />
           </div>
         </section>
 
