@@ -119,7 +119,7 @@ export default function Home() {
             </div>
           </div>
           <div className="flex justify-center">
-            <img src="/profile.jpg" alt="Shibam Das" className="h-48 w-48 rounded-full border-4 border-primary shadow-lg" />
+            <img src={`/profile.jpg?t=${new Date().getTime()}`} alt="Shibam Das" className="h-48 w-48 rounded-full border-4 border-primary shadow-lg" />
           </div>
         </section>
 
