@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import AboutGenerator from '@/components/about-generator';
+import ScrollToTop from '@/components/scroll-to-top';
 
 const skills = {
   "Programming Languages": ["JavaScript", "Python", "Java", "C++", "SQL"],
@@ -219,6 +220,9 @@ export default function Home() {
           <p>&copy; {new Date().getFullYear()} Shibam Das. All rights reserved.</p>
         </div>
       </footer>
+      <ScrollToTop />
     </div>
   )
 }
+
+    
