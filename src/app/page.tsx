@@ -1,5 +1,4 @@
 
-import Image from 'next/image';
 import { Mail, Linkedin, Github, Code, ExternalLink, School, Database, Cloud, Server, Sparkles, Calendar } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -65,10 +64,12 @@ const iconMap: { [key: string]: React.ReactNode } = {
   "Version Control": <Github className="h-6 w-6 text-primary" />
 };
 
+const glassCardClass = "bg-card/40 backdrop-blur-lg border border-white/10 shadow-lg";
+
 export default function Home() {
   return (
     <div className="flex min-h-screen w-full flex-col">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-lg">
         <div className="container flex h-16 items-center">
           <a href="#" className="mr-6 flex items-center space-x-2">
             <Code className="h-6 w-6 text-primary" />
@@ -88,10 +89,10 @@ export default function Home() {
 
       <main className="flex-1">
         <section id="home" className="container grid items-center gap-8 py-12 md:py-24">
-          <div className="space-y-4">
+          <div className="space-y-4 [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">
             <h1 className="text-4xl font-bold tracking-tighter md:text-6xl">Shibam Das</h1>
             <h2 className="text-2xl font-medium text-primary md:text-3xl">Software Developer & AI Enthusiast</h2>
-            <p className="max-w-xl text-muted-foreground">
+            <p className="max-w-xl text-foreground/80">
               A second-year Information Technology student with a passion for building innovative software solutions and exploring the frontiers of artificial intelligence.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
@@ -108,9 +109,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="about" className="w-full bg-card py-12 md:py-24">
+        <section id="about" className="w-full py-12 md:py-24">
           <div className="container">
-            <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">
               <Sparkles className="mr-2 inline-block h-8 w-8 text-accent" />
               About Me
             </h2>
@@ -121,10 +122,10 @@ export default function Home() {
         </section>
 
         <section id="skills" className="container py-12 md:py-24">
-          <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">My Skillset</h2>
+          <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">My Skillset</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {Object.entries(skills).map(([category, items]) => (
-              <Card key={category}>
+              <Card key={category} className={glassCardClass}>
                 <CardHeader className="flex flex-row items-center gap-4">
                   {iconMap[category]}
                   <CardTitle>{category}</CardTitle>
@@ -137,12 +138,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="experience" className="w-full bg-card py-12 md:py-24">
+        <section id="experience" className="w-full py-12 md:py-24">
           <div className="container">
-            <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Work Experience</h2>
+            <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">Work Experience</h2>
             <div className="mx-auto max-w-3xl space-y-8">
               {experience.map(exp => (
-                <Card key={exp.company}>
+                <Card key={exp.company} className={glassCardClass}>
                   <CardHeader>
                     <CardTitle className="text-xl">{exp.role}</CardTitle>
                     <CardDescription className="flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -162,10 +163,10 @@ export default function Home() {
         </section>
 
         <section id="projects" className="container py-12 md:py-24">
-          <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Featured Projects</h2>
+          <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">Featured Projects</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {projects.map(project => (
-              <Card key={project.title} className="flex flex-col">
+              <Card key={project.title} className={`flex flex-col ${glassCardClass}`}>
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
                 </CardHeader>
@@ -187,10 +188,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="education" className="w-full bg-card py-12 md:py-24">
+        <section id="education" className="w-full py-12 md:py-24">
           <div className="container text-center">
-            <h2 className="mb-8 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Education</h2>
-            <Card className="mx-auto max-w-2xl text-left">
+            <h2 className="mb-8 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">Education</h2>
+            <Card className={`mx-auto max-w-2xl text-left ${glassCardClass}`}>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <School className="h-6 w-6 text-primary" />
@@ -206,7 +207,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t">
+      <footer className="border-t border-white/10">
         <div className="container py-6 text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Shibam Das. All rights reserved.</p>
         </div>

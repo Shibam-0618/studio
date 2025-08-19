@@ -44,7 +44,7 @@ export default function AboutGenerator() {
   };
 
   return (
-    <Card className="w-full shadow-lg">
+    <Card className="w-full bg-card/40 backdrop-blur-lg border border-white/10 shadow-lg">
       <CardHeader>
         <CardTitle>AI-Powered "About Me"</CardTitle>
         <CardDescription>
@@ -89,7 +89,7 @@ export default function AboutGenerator() {
               <Textarea
                 readOnly
                 value={generatedAboutMe}
-                className="min-h-[120px] bg-secondary"
+                className="min-h-[120px] bg-secondary/30"
                 rows={5}
               />
             </div>
