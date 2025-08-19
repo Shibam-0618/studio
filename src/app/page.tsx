@@ -87,8 +87,8 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        <section id="home" className="container grid items-center gap-8 py-12 md:grid-cols-3 md:py-24">
-          <div className="space-y-4 md:col-span-2">
+        <section id="home" className="container grid items-center gap-8 py-12 md:py-24">
+          <div className="space-y-4">
             <h1 className="text-4xl font-bold tracking-tighter md:text-6xl">Shibam Das</h1>
             <h2 className="text-2xl font-medium text-primary md:text-3xl">Software Developer & AI Enthusiast</h2>
             <p className="max-w-xl text-muted-foreground">
@@ -105,16 +105,6 @@ export default function Home() {
                 <a href="https://www.linkedin.com/in/shibamdas" target="_blank" rel="noopener noreferrer"><Linkedin className="mr-2 h-4 w-4" /> LinkedIn</a>
               </Button>
             </div>
-          </div>
-          <div className="flex justify-center">
-            <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&h=200&auto=format&fit=crop"
-              alt="Shibam Das"
-              width={200}
-              height={200}
-              className="rounded-full border-4 border-primary shadow-lg"
-              data-ai-hint="profile picture"
-            />
           </div>
         </section>
 
