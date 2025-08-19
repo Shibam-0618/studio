@@ -108,10 +108,10 @@ export default function Home() {
           </div>
           <div className="flex justify-center">
             <Image
-              src="https://placehold.co/256x256.png"
+              src="/profile.jpeg"
               alt="Shibam Das"
-              width={256}
-              height={256}
+              width={220}
+              height={220}
               className="rounded-full border-4 border-primary shadow-lg"
               data-ai-hint="profile picture"
               priority
