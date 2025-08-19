@@ -1,5 +1,5 @@
 
-import { Mail, Linkedin, Github, Code, ExternalLink, School, Database, Cloud, Server, Sparkles, Calendar } from 'lucide-react';
+import { Mail, Linkedin, Github, Code, ExternalLink, School, Database, Cloud, Server, Sparkles, Calendar, Phone } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -97,7 +97,10 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <Button asChild>
-                <a href="mailto:shibam.das.dev@gmail.com"><Mail className="mr-2 h-4 w-4" /> Email Me</a>
+                <a href="mailto:shibamdas0618@gmail.com"><Mail className="mr-2 h-4 w-4" /> Email Me</a>
+              </Button>
+               <Button asChild>
+                <a href="tel:8240169466"><Phone className="mr-2 h-4 w-4" /> Call Me</a>
               </Button>
               <Button variant="secondary" asChild>
                 <a href="https://github.com/shibam-das" target="_blank" rel="noopener noreferrer"><Github className="mr-2 h-4 w-4" /> GitHub</a>
