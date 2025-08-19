@@ -39,6 +39,8 @@ const generateAboutMePrompt = ai.definePrompt({
   The generated "About Me" block should be concise and engaging.
   Do not include any introductory or concluding sentences, only the "About Me" block.
   Example of a creative about me block: A curious mind with a passion for crafting innovative solutions. Shibam loves to blend technical skills with creative problem-solving, always eager to explore new possibilities in the tech landscape.
+  
+  You must provide your response as a valid JSON object, adhering to the specified output schema.
   `,
 });
 
@@ -50,6 +52,9 @@ const generateAboutMeFlow = ai.defineFlow(
   },
   async input => {
     const {output} = await generateAboutMePrompt(input);
-    return output!;
+    if (!output) {
+      throw new Error('Failed to generate about me content.');
+    }
+    return output;
   }
 );
