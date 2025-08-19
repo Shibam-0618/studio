@@ -44,7 +44,7 @@ export default function AboutGenerator() {
   };
 
   return (
-    <Card className="w-full bg-card/30 backdrop-blur-lg border border-white/10 shadow-lg">
+    <Card className="w-full">
       <CardHeader>
         <CardTitle>AI-Powered "About Me"</CardTitle>
         <CardDescription>
