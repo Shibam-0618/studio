@@ -94,9 +94,11 @@ export default function Home() {
 
       <main className="flex-1">
         <section id="home" className="container grid grid-cols-1 items-center gap-8 py-24 text-center md:py-32">
-          <div className="space-y-4 [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">
-            <h1 className="text-4xl font-bold tracking-tighter md:text-6xl">Shibam Das</h1>
-            <h2 className="text-2xl font-medium text-primary md:text-3xl">Software Developer & AI Enthusiast</h2>
+          <div className="space-y-4">
+            <h1 className="animate-text-gradient bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-4xl font-extrabold tracking-tighter text-transparent md:text-6xl">
+              Shibam Das
+            </h1>
+            <h2 className="text-2xl font-medium text-primary md:text-3xl [text-shadow:0_1px_2px_rgba(0,0,0,0.1)]">Software Developer & AI Enthusiast</h2>
             <p className="mx-auto max-w-xl text-foreground/80">
               An Information Technology student with a passion for building innovative software solutions and exploring the frontiers of artificial intelligence.
             </p>
