@@ -64,7 +64,7 @@ const iconMap: { [key: string]: React.ReactNode } = {
   "Version Control": <Github className="h-6 w-6 text-primary" />
 };
 
-const glassCardClass = "bg-card/40 backdrop-blur-lg border border-white/10 shadow-lg";
+const glassCardClass = "bg-card/30 backdrop-blur-lg border border-white/10 shadow-lg";
 
 export default function Home() {
   return (
