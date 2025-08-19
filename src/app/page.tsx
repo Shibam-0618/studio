@@ -54,8 +54,7 @@ const projects = [
 const education = {
   institution: "University of Engineering & Management, Kolkata",
   degree: "Bachelor of Technology in Computer Science & Engineering",
-  period: "2022 - 2026 (Expected)",
-  details: "Currently in my second year."
+  details: "Pursuing a Bachelor of Technology with a focus on Computer Science and Engineering."
 };
 
 const iconMap: { [key: string]: React.ReactNode } = {
@@ -210,9 +209,8 @@ export default function Home() {
                 </CardTitle>
                 <CardDescription>{education.institution}</CardDescription>
               </CardHeader>
-              <CardContent className="flex flex-wrap justify-between gap-4">
-                <span>{education.details}</span>
-                <span className="flex items-center gap-1 text-muted-foreground"><Calendar className="h-4 w-4" /> {education.period}</span>
+              <CardContent>
+                <p>{education.details}</p>
               </CardContent>
             </Card>
           </div>
