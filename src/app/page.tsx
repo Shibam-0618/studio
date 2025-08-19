@@ -1,5 +1,5 @@
 
-import { Mail, Linkedin, Github, Code, ExternalLink, School, Database, Cloud, Server, Sparkles, Calendar, Phone } from 'lucide-react';
+import { Mail, Linkedin, Github, Code, ExternalLink, School, Database, Cloud, Server, Sparkles, Calendar, Phone, Wind, Type } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -7,7 +7,8 @@ import AboutGenerator from '@/components/about-generator';
 
 const skills = {
   "Programming Languages": ["Python", "Java", "C++", "JavaScript", "TypeScript", "SQL"],
-  "Libraries/Frameworks": ["React", "Node.js", "Express.js", "Pandas", "NumPy"],
+  "Web Technologies": ["HTML", "CSS", "React", "Node.js"],
+  "Libraries/Frameworks": ["Pandas", "NumPy"],
   "Cloud Platforms": ["Amazon Web Services (AWS)", "Google Cloud Platform (GCP)", "Firebase"],
   "Databases": ["MySQL", "PostgreSQL", "MongoDB"],
   "Version Control": ["Git", "GitHub"]
@@ -58,6 +59,7 @@ const education = {
 
 const iconMap: { [key: string]: React.ReactNode } = {
   "Programming Languages": <Code className="h-6 w-6 text-primary" />,
+  "Web Technologies": <Wind className="h-6 w-6 text-primary" />,
   "Libraries/Frameworks": <Server className="h-6 w-6 text-primary" />,
   "Cloud Platforms": <Cloud className="h-6 w-6 text-primary" />,
   "Databases": <Database className="h-6 w-6 text-primary" />,
