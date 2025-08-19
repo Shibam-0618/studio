@@ -111,7 +111,7 @@ export default function Home() {
                 <a href="https://github.com/shibam-das" target="_blank" rel="noopener noreferrer"><Github className="mr-2 h-4 w-4" /> GitHub</a>
               </Button>
               <Button variant="secondary" asChild>
-                <a href="https://www.linkedin.com/in/shibamdas" target="_blank" rel="noopener noreferrer"><Linkedin className="mr-2 h-4 w-4" /> LinkedIn</a>
+                <a href="https://www.linkedin.com/in/shibam-das-8262092a7" target="_blank" rel="noopener noreferrer"><Linkedin className="mr-2 h-4 w-4" /> LinkedIn</a>
               </Button>
             </div>
           </div>
