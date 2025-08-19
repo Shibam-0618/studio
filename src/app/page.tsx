@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/button';
 import AboutGenerator from '@/components/about-generator';
 
 const skills = {
-  "Programming Languages": ["Python", "Java", "C++", "JavaScript", "TypeScript", "SQL"],
-  "Web Technologies": ["HTML", "CSS", "React", "Node.js"],
+  "Programming Languages": ["JavaScript", "Python", "Java", "C++", "SQL"],
+  "Web Technologies": ["React", "Node.js", "HTML", "CSS"],
   "Libraries/Frameworks": ["Pandas", "NumPy"],
   "Cloud Platforms": ["Amazon Web Services (AWS)", "Google Cloud Platform (GCP)", "Firebase"],
   "Databases": ["MySQL", "PostgreSQL", "MongoDB"],
