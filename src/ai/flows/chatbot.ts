@@ -25,7 +25,7 @@ const ChatbotInputSchema = z.object({
 export type ChatbotInput = z.infer<typeof ChatbotInputSchema>;
 
 const ChatbotOutputSchema = z.object({
-  response: z.string().describe('The chatbot\'s response to the user.'),
+  response: z.string().describe("The chatbot's response to the user."),
 });
 export type ChatbotOutput = z.infer<typeof ChatbotOutputSchema>;
 
@@ -82,7 +82,7 @@ const chatbotPrompt = ai.definePrompt({
   New user message:
   user: {{{message}}}
   
-  Your response:
+  You must provide your response as a valid JSON object, adhering to the specified output schema.
   `,
 });
 
