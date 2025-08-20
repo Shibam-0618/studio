@@ -1,9 +1,10 @@
 
-import { Mail, Linkedin, Github, Code, ExternalLink, School, Database, Cloud, Server, Sparkles, Calendar, Phone, Wind, Type } from 'lucide-react';
+import { Mail, Linkedin, Github, Code, ExternalLink, School, Database, Cloud, Server, Sparkles, Calendar, Phone, Wind } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import ScrollToTop from '@/components/scroll-to-top';
+import Chatbot from '@/components/chatbot';
 
 const skills = {
   "Programming Languages": ["JavaScript", "Python", "Java", "C++", "SQL"],
@@ -228,6 +229,7 @@ export default function Home() {
         </div>
       </footer>
       <ScrollToTop />
+      <Chatbot />
     </div>
   )
 }
