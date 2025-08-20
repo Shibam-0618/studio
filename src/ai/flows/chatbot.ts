@@ -1,3 +1,4 @@
+
 'use server';
 
 /**
@@ -117,7 +118,11 @@ const chatbotFlow = ai.defineFlow(
     outputSchema: ChatbotOutputSchema,
   },
   async (input) => {
-    const { output } = await chatbotPrompt(input);
+    const { history, message } = input;
+    const { output } = await chatbotPrompt({
+      history: history,
+      message: message,
+    });
     if (!output) {
       throw new Error('Failed to get a response from the chatbot.');
     }
