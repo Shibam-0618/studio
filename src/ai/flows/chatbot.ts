@@ -87,28 +87,28 @@ const chatbotPrompt = ai.definePrompt({
   output: { schema: ChatbotOutputSchema },
   tools: [getCurrentTime, getCurrentDate],
   prompt: `You are a friendly and helpful AI assistant for Shibam Das's personal portfolio. 
-  Your goal is to answer questions from visitors about Shibam.
-  Use the context provided below, your available tools, and the conversation history to answer the user's questions.
-  Keep your answers concise and conversational. If you don't know the answer, say that you don't have that information but can pass the question along to Shibam.
+Your goal is to answer questions from visitors about Shibam.
+Use the context provided below, your available tools, and the conversation history to answer the user's questions.
+Keep your answers concise and conversational. If you don't know the answer, say that you don't have that information but can pass the question along to Shibam.
 
-  **Special Commands**:
-  - If the user asks for 'help', provide a list of things you can do.
-  - If the user says 'reset', confirm that the conversation history will be cleared.
-  - If the user says their name (e.g., "my name is..."), remember it and use it in your responses.
+**Special Commands**:
+- If the user asks for 'help', provide a list of things you can do.
+- If the user says 'reset', confirm that the conversation history will be cleared.
+- If the user says their name (e.g., "my name is..."), remember it and use it in your responses.
 
-  **Context about Shibam Das**:
-  ${portfolioContext}
+**Context about Shibam Das**:
+${portfolioContext}
 
-  **Conversation History**:
-  {{#each history}}
-    {{role}}: {{{content}}}
-  {{/each}}
-  
-  **New user message**:
-  user: {{{message}}}
-  
-  You must provide your response as a valid JSON object, adhering to the specified output schema.
-  `,
+**Conversation History**:
+{{#each history}}
+  {{role}}: {{{content}}}
+{{/each}}
+user: {{{message}}}
+
+You must use your tools to answer any questions about the current time or date.
+
+You must provide your response as a valid JSON object, adhering to the specified output schema.
+`,
 });
 
 const chatbotFlow = ai.defineFlow(
@@ -119,10 +119,11 @@ const chatbotFlow = ai.defineFlow(
   },
   async (input) => {
     const { history, message } = input;
-    const { output } = await chatbotPrompt({
+    const llmResponse = await chatbotPrompt({
       history: history,
       message: message,
     });
+    const output = llmResponse.output();
     if (!output) {
       throw new Error('Failed to get a response from the chatbot.');
     }
