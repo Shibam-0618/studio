@@ -24,9 +24,14 @@ const quickPrompts = [
   "my name is Shibam",
 ];
 
+const initialMessage: Message = {
+  role: 'model',
+  content: "Hello! I'm Shibam's AI assistant. Ask me anything about his work, or try one of the prompts below."
+};
+
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>([initialMessage]);
   const [input, setInput] = useState('');
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
@@ -45,9 +50,7 @@ export default function Chatbot() {
   };
 
   const resetChat = () => {
-    setMessages([]);
-    const modelMessage: Message = { role: 'model', content: "Memory cleared. Let's start over!" };
-    setMessages((prev) => [...prev, modelMessage]);
+    setMessages([initialMessage]);
   }
   
   const sendPrompt = (prompt: string) => {
@@ -58,7 +61,7 @@ export default function Chatbot() {
     startTransition(async () => {
       try {
         const result = await handleChatbot({
-          history: messages,
+          history: [...messages, userMessage].slice(1), // Exclude initial message from history
           message: prompt,
         });
         const modelMessage: Message = { role: 'model', content: result.response };
@@ -109,16 +112,6 @@ export default function Chatbot() {
           <CardContent className="flex-grow flex flex-col p-0">
             <ScrollArea className="h-80 flex-grow">
               <div ref={scrollAreaRef} className="space-y-4 p-6">
-                {messages.length === 0 && (
-                   <div className="flex items-start gap-3 justify-start">
-                     <div className="bg-primary text-primary-foreground rounded-full p-2">
-                       <Bot className="h-5 w-5" />
-                     </div>
-                     <div className="bg-muted/50 rounded-lg px-4 py-2 text-sm">
-                       Hello! Ask me about Shibam, or try one of the prompts below.
-                     </div>
-                  </div>
-                )}
                 {messages.map((message, index) => (
                   <div
                     key={index}

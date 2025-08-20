@@ -126,25 +126,7 @@ const chatbotFlow = ai.defineFlow(
     outputSchema: ChatbotOutputSchema,
   },
   async (input) => {
-    const { history, message } = input;
-
-    // The first message from the user.
-    if (!history || history.length === 0) {
-      const llmResponse = await chatbotPrompt({
-        history: [],
-        message: 'Hello',
-      });
-      const output = llmResponse.output();
-      if (!output) {
-        throw new Error('Failed to get a response from the chatbot.');
-      }
-      return output;
-    }
-
-    const llmResponse = await chatbotPrompt({
-      history: history,
-      message: message,
-    });
+    const llmResponse = await chatbotPrompt(input);
     const output = llmResponse.output();
     if (!output) {
       throw new Error('Failed to get a response from the chatbot.');
