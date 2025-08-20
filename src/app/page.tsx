@@ -73,8 +73,8 @@ const iconMap: { [key: string]: React.ReactNode } = {
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen w-full flex-col">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-lg">
+    <div className="flex min-h-screen w-full flex-col bg-background/95">
+      <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-background/80 backdrop-blur-lg">
         <div className="container flex h-16 items-center">
           <a href="#" className="mr-6 flex items-center space-x-2">
             <Code className="h-6 w-6 text-primary" />
@@ -126,7 +126,7 @@ export default function Home() {
               About Me
             </h2>
             <div className="mx-auto max-w-4xl">
-              <Card>
+              <Card className="bg-card/50 backdrop-blur-lg">
                 <CardContent className="p-6 text-lg">
                   <p>
                     I am a B.Tech student in Information Technology from Kolkata, with a strong foundation in Python, Java, C++, and JavaScript. My expertise extends to web development with React and Node.js, and I have hands-on experience with AWS services, particularly in building automated ETL pipelines using AWS Glue. I have also developed machine learning models for candlestick analysis and fraud detection. As a proactive learner and collaborative team player, I am passionate about leveraging technology to create impactful and innovative solutions and am eager to apply my skills in a challenging software development role.
@@ -141,7 +141,7 @@ export default function Home() {
           <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">My Skillset</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {Object.entries(skills).map(([category, items]) => (
-              <Card key={category}>
+              <Card key={category} className="bg-card/50 backdrop-blur-lg">
                 <CardHeader className="flex flex-row items-center gap-4">
                   {iconMap[category]}
                   <CardTitle>{category}</CardTitle>
@@ -159,7 +159,7 @@ export default function Home() {
             <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">Work Experience</h2>
             <div className="mx-auto max-w-3xl space-y-8">
               {experience.map(exp => (
-                <Card key={exp.company}>
+                <Card key={exp.company} className="bg-card/50 backdrop-blur-lg">
                   <CardHeader>
                     <CardTitle className="text-xl">{exp.role}</CardTitle>
                     <CardDescription className="flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -182,7 +182,7 @@ export default function Home() {
           <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">Featured Projects</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {projects.map(project => (
-              <Card key={project.title} className="flex flex-col">
+              <Card key={project.title} className="flex flex-col bg-card/50 backdrop-blur-lg">
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
                 </CardHeader>
@@ -207,7 +207,7 @@ export default function Home() {
         <section id="education" className="w-full py-12 md:py-24">
           <div className="container text-center">
             <h2 className="mb-8 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">Education</h2>
-            <Card className="mx-auto max-w-2xl text-left">
+            <Card className="mx-auto max-w-2xl text-left bg-card/50 backdrop-blur-lg">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <School className="h-6 w-6 text-primary" />

@@ -96,7 +96,7 @@ export default function Chatbot() {
       </div>
 
       {isOpen && (
-        <Card className="fixed bottom-24 right-5 z-50 w-full max-w-sm flex flex-col shadow-2xl">
+        <Card className="fixed bottom-24 right-5 z-50 w-full max-w-sm flex flex-col shadow-2xl bg-card/80 backdrop-blur-lg">
           <CardHeader className="flex flex-row items-center justify-between">
             <div className="space-y-1">
               <CardTitle>AI Assistant</CardTitle>
@@ -114,7 +114,7 @@ export default function Chatbot() {
                      <div className="bg-primary text-primary-foreground rounded-full p-2">
                        <Bot className="h-5 w-5" />
                      </div>
-                     <div className="bg-muted rounded-lg px-4 py-2 text-sm">
+                     <div className="bg-muted/50 rounded-lg px-4 py-2 text-sm">
                        Hello! Ask me about Shibam, or try one of the prompts below.
                      </div>
                   </div>
@@ -137,7 +137,7 @@ export default function Chatbot() {
                         'rounded-lg px-4 py-2 text-sm max-w-[80%]',
                         message.role === 'user'
                           ? 'bg-primary text-primary-foreground'
-                          : 'bg-muted'
+                          : 'bg-muted/50'
                       )}
                     >
                       {message.content}
@@ -154,7 +154,7 @@ export default function Chatbot() {
                       <div className="bg-primary text-primary-foreground rounded-full p-2">
                         <Bot className="h-5 w-5" />
                       </div>
-                      <div className="bg-muted rounded-lg px-4 py-2">
+                      <div className="bg-muted/50 rounded-lg px-4 py-2">
                          <Loader2 className="h-5 w-5 animate-spin" />
                       </div>
                    </div>
@@ -162,12 +162,12 @@ export default function Chatbot() {
               </div>
             </ScrollArea>
              {messages.length <= 1 && (
-              <div className="p-4 border-t flex flex-wrap gap-2">
+              <div className="p-4 border-t border-white/10 flex flex-wrap gap-2">
                 {quickPrompts.map((prompt) => (
                   <Badge 
                     key={prompt}
                     variant="outline"
-                    className="cursor-pointer hover:bg-muted"
+                    className="cursor-pointer hover:bg-muted/50"
                     onClick={() => sendPrompt(prompt)}
                   >
                     {prompt}
@@ -175,7 +175,7 @@ export default function Chatbot() {
                 ))}
               </div>
             )}
-            <div className="p-4 border-t bg-background">
+            <div className="p-4 border-t border-white/10 bg-background/80">
               <form onSubmit={handleSubmit} className="flex items-center gap-2">
                 <Input
                   value={input}
