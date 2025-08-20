@@ -1,10 +1,11 @@
 
-import { Mail, Linkedin, Github, Code, ExternalLink, School, Database, Cloud, Server, Sparkles, Calendar, Phone, Wind } from 'lucide-react';
+import { Mail, Linkedin, Github, Code, ExternalLink, School, Database, Cloud, Server, Sparkles, Calendar, Phone, Wind, Menu } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import ScrollToTop from '@/components/scroll-to-top';
 import Chatbot from '@/components/chatbot';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const skills = {
   "Programming Languages": ["JavaScript", "Python", "Java", "C++", "SQL"],
@@ -72,23 +73,50 @@ const iconMap: { [key: string]: React.ReactNode } = {
 };
 
 export default function Home() {
+  const navLinks = [
+    { href: "#about", label: "About" },
+    { href: "#skills", label: "Skills" },
+    { href: "#experience", label: "Experience" },
+    { href: "#projects", label: "Projects" },
+    { href: "#education", label: "Education" },
+  ];
+
   return (
     <div className="flex min-h-screen w-full flex-col bg-background/95">
       <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-background/80 backdrop-blur-lg">
-        <div className="container flex h-16 items-center">
-          <a href="#" className="mr-6 flex items-center space-x-2">
+        <div className="container flex h-16 items-center justify-between">
+          <a href="#" className="flex items-center space-x-2">
             <Code className="h-6 w-6 text-primary" />
             <span className="font-bold">
               Shibam Das
             </span>
           </a>
           <nav className="hidden items-center space-x-6 text-sm font-medium md:flex">
-            <a href="#about" className="transition-colors hover:text-primary">About</a>
-            <a href="#skills" className="transition-colors hover:text-primary">Skills</a>
-            <a href="#experience" className="transition-colors hover:text-primary">Experience</a>
-            <a href="#projects" className="transition-colors hover:text-primary">Projects</a>
-            <a href="#education" className="transition-colors hover:text-primary">Education</a>
+            {navLinks.map(link => (
+              <a key={link.href} href={link.href} className="transition-colors hover:text-primary">
+                {link.label}
+              </a>
+            ))}
           </nav>
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Toggle navigation menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right">
+                <div className="grid gap-4 py-6">
+                  {navLinks.map(link => (
+                     <a key={link.href} href={link.href} className="text-lg font-medium transition-colors hover:text-primary">
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </header>
 
