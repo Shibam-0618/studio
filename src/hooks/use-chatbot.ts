@@ -33,12 +33,12 @@ export function useChatbot() {
       content: input,
     };
 
-    setMessages((prev) => [...prev, userMessage]);
+    const newHistory = [...messages, userMessage];
+    setMessages(newHistory);
     setInput('');
     setIsLoading(true);
 
     try {
-      const newHistory = [...messages, userMessage];
       const result = await continueConversation(newHistory);
 
       if (result.text.trim().toLowerCase() === 'reset') {

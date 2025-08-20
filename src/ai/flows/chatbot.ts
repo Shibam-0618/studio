@@ -4,9 +4,9 @@
  * @fileOverview A chatbot AI flow that uses tools to answer questions.
  */
 
-import { ai } from '@/ai/genkit';
-import { Message, Role } from '@/lib/types';
-import { z } from 'zod';
+import {ai} from '@/ai/genkit';
+import {Message} from '@/lib/types';
+import {z} from 'zod';
 
 const getCurrentTime = ai.defineTool(
   {
@@ -44,8 +44,7 @@ Your role is to:
 - Use short paragraphs or bullet points for clarity.  
 - Simulate a natural chat flow, like a real assistant, not a robotic Q&A.  
 - If you don’t know the answer, politely guide the user to the "Contact" section or email.  
-
-If the user asks to reset the conversation, output the simple string "reset".
+- If the user asks to reset the conversation, output the simple string "reset".
 
 Tone: Friendly, supportive, professional.  
 Goal: Make users feel comfortable exploring the website and learning more about Shibam Das.`,
@@ -54,12 +53,18 @@ Goal: Make users feel comfortable exploring the website and learning more about 
 export async function chat(history: Message[]) {
   const llmHistory = history.map((message) => ({
     role: message.role,
-    content: [{ text: message.content }],
+    content: [{text: message.content}],
   }));
 
   const result = await chatbotPrompt({
     history: llmHistory,
   });
 
-  return result.output?.content as { text: string };
+  const output = result.output?.content;
+
+  if (output && output.length > 0 && 'text' in output[0]) {
+     return { text: output[0].text };
+  }
+
+  return { text: "Sorry, I couldn't generate a response." };
 }
