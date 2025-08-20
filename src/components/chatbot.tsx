@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useTransition, useRef, useEffect } from 'react';
@@ -9,11 +10,19 @@ import { handleChatbot } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
 import { MessageSquare, Send, X, Loader2, Bot, User, RotateCcw } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Badge } from './ui/badge';
 
 type Message = {
   role: 'user' | 'model';
   content: string;
 };
+
+const quickPrompts = [
+  "hi",
+  "what's the time?",
+  "help",
+  "my name is Shibam",
+];
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,32 +37,29 @@ export default function Chatbot() {
       scrollAreaRef.current.scrollTop = scrollAreaRef.current.scrollHeight;
     }
   }, [messages]);
+  
+  const scrollToBottom = () => {
+    if (scrollAreaRef.current) {
+      setTimeout(() => scrollAreaRef.current!.scrollTop = scrollAreaRef.current!.scrollHeight, 0);
+    }
+  };
 
   const resetChat = () => {
     setMessages([]);
+    const modelMessage: Message = { role: 'model', content: "Memory cleared. Let's start over!" };
+    setMessages((prev) => [...prev, modelMessage]);
   }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim()) return;
-
-    if (input.trim().toLowerCase() === 'reset') {
-      resetChat();
-      setInput('');
-      const modelMessage: Message = { role: 'model', content: "Memory cleared. Let's start over!" };
-      setMessages((prev) => [...prev, modelMessage]);
-      return;
-    }
-
-    const userMessage: Message = { role: 'user', content: input };
+  
+  const sendPrompt = (prompt: string) => {
+    const userMessage: Message = { role: 'user', content: prompt };
     setMessages((prev) => [...prev, userMessage]);
     setInput('');
-
+    
     startTransition(async () => {
       try {
         const result = await handleChatbot({
           history: messages,
-          message: input,
+          message: prompt,
         });
         const modelMessage: Message = { role: 'model', content: result.response };
         setMessages((prev) => [...prev, modelMessage]);
@@ -67,6 +73,18 @@ export default function Chatbot() {
         setMessages((prev) => prev.slice(0, -1)); // Remove the user message on error
       }
     });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+
+    if (input.trim().toLowerCase() === 'reset') {
+      resetChat();
+      setInput('');
+      return;
+    }
+    sendPrompt(input);
   };
 
   return (
@@ -89,8 +107,18 @@ export default function Chatbot() {
             </Button>
           </CardHeader>
           <CardContent className="flex-grow flex flex-col p-0">
-            <ScrollArea className="h-80 flex-grow p-6">
-              <div ref={scrollAreaRef} className="space-y-4">
+            <ScrollArea className="h-80 flex-grow">
+              <div ref={scrollAreaRef} className="space-y-4 p-6">
+                {messages.length === 0 && (
+                   <div className="flex items-start gap-3 justify-start">
+                     <div className="bg-primary text-primary-foreground rounded-full p-2">
+                       <Bot className="h-5 w-5" />
+                     </div>
+                     <div className="bg-muted rounded-lg px-4 py-2 text-sm">
+                       Hello! Ask me about Shibam, or try one of the prompts below.
+                     </div>
+                  </div>
+                )}
                 {messages.map((message, index) => (
                   <div
                     key={index}
@@ -133,7 +161,21 @@ export default function Chatbot() {
                 )}
               </div>
             </ScrollArea>
-            <div className="p-4 border-t">
+             {messages.length <= 1 && (
+              <div className="p-4 border-t flex flex-wrap gap-2">
+                {quickPrompts.map((prompt) => (
+                  <Badge 
+                    key={prompt}
+                    variant="outline"
+                    className="cursor-pointer hover:bg-muted"
+                    onClick={() => sendPrompt(prompt)}
+                  >
+                    {prompt}
+                  </Badge>
+                ))}
+              </div>
+            )}
+            <div className="p-4 border-t bg-background">
               <form onSubmit={handleSubmit} className="flex items-center gap-2">
                 <Input
                   value={input}

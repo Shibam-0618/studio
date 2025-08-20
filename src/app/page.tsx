@@ -3,7 +3,6 @@ import { Mail, Linkedin, Github, Code, ExternalLink, School, Database, Cloud, Se
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import AboutGenerator from '@/components/about-generator';
 import ScrollToTop from '@/components/scroll-to-top';
 import Chatbot from '@/components/chatbot';
 
@@ -127,7 +126,13 @@ export default function Home() {
               About Me
             </h2>
             <div className="mx-auto max-w-4xl">
-              <AboutGenerator />
+              <Card>
+                <CardContent className="p-6 text-lg">
+                  <p>
+                    I am a B.Tech student in Information Technology from Kolkata, with a strong foundation in Python, Java, C++, and JavaScript. My expertise extends to web development with React and Node.js, and I have hands-on experience with AWS services, particularly in building automated ETL pipelines using AWS Glue. I have also developed machine learning models for candlestick analysis and fraud detection. As a proactive learner and collaborative team player, I am passionate about leveraging technology to create impactful and innovative solutions and am eager to apply my skills in a challenging software development role.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
@@ -228,5 +233,3 @@ export default function Home() {
     </div>
   )
 }
-
-    
