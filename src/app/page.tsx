@@ -4,7 +4,6 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import ScrollToTop from '@/components/scroll-to-top';
-import Chatbot from '@/components/chatbot';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const skills = {
@@ -257,7 +256,6 @@ export default function Home() {
         </div>
       </footer>
       <ScrollToTop />
-      <Chatbot />
     </div>
   )
 }
